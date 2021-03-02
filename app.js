@@ -14,6 +14,7 @@ var usersRouter = require('./routes/users');
 var Users = require('./models/users');
 
 var apiUsersRouter = require('./routes/api/users');
+var apiAuthRouter = require('./routes/api/auth');
 
 var app = express();
 var config = require('./config.dev');
@@ -73,6 +74,7 @@ passport.deserializeUser(function(user, done){
 
 
 app.use('/api/users', apiUsersRouter);
+app.use('/api/auth', apiAuthRouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
