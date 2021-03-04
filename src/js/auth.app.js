@@ -108,6 +108,25 @@ var authApp = (function() {
             }
         });
     }      
+    return {
+        load: function(){
+      
+          switch(window.location.hash){
+            case '#register':
+              registrationForm();
+              postRequest('registrationForm', '/api/auth/register');
+              validate.registrationForm();
+              break;
+      
+            default:
+              loginForm();
+              postRequest('loginForm', '/api/auth/login');
+              break;
+          }
+      
+        }
+      }
+      
     //   return {
     //     load: function(){
     //         loginForm();
@@ -152,5 +171,9 @@ var authApp = (function() {
       
       })();
           
-    authApp.load();
-    
+      authApp.load();
+
+      window.addEventListener("hashchange", function(){
+        authApp.load();
+      });
+          
