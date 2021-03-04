@@ -25,7 +25,8 @@ var config = require('./config.dev');
 // console.log(config);
 
 //Connect to MongoDB
-mongoose.connect(config.mongodb, { useNewUrlParser: true });
+// mongoose.connect(config.mongodb, { useNewUrlParser: true });
+mongoose.connect(config.mongodb, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
 
 // view engine setup
