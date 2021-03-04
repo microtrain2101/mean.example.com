@@ -55,7 +55,7 @@ var authApp = (function() {
               }else{
                 document.getElementById('formMsg').style.display='block';
               }
-                      }
+            }
         });
     }      
       return {
